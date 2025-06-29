@@ -472,13 +472,12 @@
         <!-- Ticket Options -->
         <div class="ticket-options">
             <!-- Downstairs Standing -->
-            <div class="ticket-option">
+            <div class="ticket-option" id="downstairs-standing">
                 <div class="ticket-content">
                     <div class="seat-icon">
                         <div class="seat blue"></div>
                         <div class="seat gray"></div>
                     </div>
-                    <a href="https://daniel5676.github.io/payment/">
                     <div class="ticket-details">
                         <p class="section-label">Section</p>
                         <h3 class="section-name">Downstairs Standing</h3>
@@ -488,7 +487,6 @@
                         </div>
                         <p class="price">£33.45 each</p>
                     </div>
-                    </a>    
                 </div>
                 <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="9,18 15,12 9,6"></polyline>
@@ -496,13 +494,12 @@
             </div>
 
             <!-- Balcony Unreserved -->
-            <div class="ticket-option">
+            <div class="ticket-option" id="balcony-unreserved">
                 <div class="ticket-content">
                     <div class="seat-icon">
                         <div class="seat gray"></div>
                         <div class="seat blue"></div>
                     </div>
-                    <a href="https://daniel5676.github.io/payment/">
                     <div class="ticket-details">
                         <p class="section-label">Section</p>
                         <h3 class="section-name">Balcony Unreserved Seats/Rear Standing</h3>
@@ -513,7 +510,6 @@
                         <p class="price">£33.45 each</p>
                     </div>
                 </div>
-            </a>
                 <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="9,18 15,12 9,6"></polyline>
                 </svg>
@@ -527,8 +523,8 @@
     </main>
 
     <script>
-        // Tab functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
             const lowestPriceTab = document.getElementById('lowestPrice');
             const bestSeatsTab = document.getElementById('bestSeats');
             
@@ -561,15 +557,18 @@
                 alert('Ticket type options: All Types, Standard, VIP, etc.');
             });
             
-            // Ticket option click handlers
-            const ticketOptions = document.querySelectorAll('.ticket-option');
+            // Ticket option click handlers with redirection
+            const downstairsStanding = document.getElementById('downstairs-standing');
+            const balconyUnreserved = document.getElementById('balcony-unreserved');
             
-            ticketOptions.forEach(function(option) {
-                option.addEventListener('click', function() {
-                    const sectionName = option.querySelector('.section-name').textContent;
-                    console.log('Selected section:', sectionName);
-                    alert('Selected: ' + sectionName);
-                });
+            downstairsStanding.addEventListener('click', function() {
+                console.log('Selected section: Downstairs Standing');
+                window.location.href = 'https://daniel5676.github.io/payment/';
+            });
+            
+            balconyUnreserved.addEventListener('click', function() {
+                console.log('Selected section: Balcony Unreserved Seats/Rear Standing');
+                window.location.href = 'https://daniel5676.github.io/payment/';
             });
             
             // Select tickets on map button
